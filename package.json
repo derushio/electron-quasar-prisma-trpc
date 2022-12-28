@@ -27,6 +27,7 @@
     "express": "^4.18.2",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
+    "superjson": "^1.12.1",
     "vue": "^3.0.0",
     "vue-query": "^1.26.0",
     "vue-router": "^4.0.0",
