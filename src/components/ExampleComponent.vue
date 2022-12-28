@@ -1,5 +1,5 @@
 <template>
-  <div>{{ userQuery.data }}</div>
+  <div>{{ userQuery.data.value }}</div>
 </template>
 
 <script setup lang="ts">
