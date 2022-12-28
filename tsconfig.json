@@ -4,6 +4,9 @@
     "baseUrl": ".",
     "target": "esnext",
     "module": "commonjs",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "#/*": ["src-electron/*"]
+    }
   }
 }

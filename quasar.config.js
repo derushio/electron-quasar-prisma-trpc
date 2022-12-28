@@ -10,6 +10,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+const path = require('path');
 const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (ctx) {
@@ -52,6 +53,9 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      alias: {
+        '#': path.join(__dirname, 'src-electron'),
+      },
 
       // transpile: false,
       // publicPath: '/',
@@ -206,15 +210,17 @@ module.exports = configure(function (ctx) {
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpackMain(/* chain */) {
+      chainWebpackMain(chain) {
         // do something with the Electron main process Webpack cfg
         // extendWebpackMain also available besides this chainWebpackMain
+        chain.resolve.alias.set('#', path.join(__dirname, 'src-electron'));
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpackPreload(/* chain */) {
+      chainWebpackPreload(chain) {
         // do something with the Electron main process Webpack cfg
         // extendWebpackPreload also available besides this chainWebpackPreload
+        chain.resolve.alias.set('#', path.join(__dirname, 'src-electron'));
       },
     },
   };

@@ -1,3 +1,4 @@
+import { startBackend } from '#/backend/main';
 import { BrowserWindow, app, nativeTheme } from 'electron';
 import os from 'os';
 import path from 'path';
@@ -31,7 +32,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL(process.env.APP_URL);
+  void mainWindow.loadURL(process.env.APP_URL);
 
   if (process.env.DEBUGGING) {
     // if on DEV or Production with debug enabled
@@ -48,7 +49,7 @@ function createWindow() {
   });
 }
 
-app.whenReady().then(createWindow);
+void app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
   if (platform !== 'darwin') {
@@ -61,3 +62,5 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+void startBackend();
