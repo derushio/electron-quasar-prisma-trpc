@@ -2,6 +2,10 @@
 
 quasar-prisma-trpc
 
+```
+renderer process (quasar) <-trpc-> main process <-prisma-> sqlite
+```
+
 ## Install the dependencies
 
 ```bash
