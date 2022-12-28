@@ -56,6 +56,7 @@ module.exports = configure(function (ctx) {
       alias: {
         '#': path.join(__dirname, 'src-electron'),
       },
+      env: require('dotenv').config().parsed,
 
       // transpile: false,
       // publicPath: '/',

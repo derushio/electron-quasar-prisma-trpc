@@ -3,8 +3,6 @@ import { appRouter } from '#/backend/trpc/router';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import express from 'express';
 
-const PORT = 8070;
-
 export async function startBackend() {
   const app = express();
   app.use(
@@ -14,7 +12,7 @@ export async function startBackend() {
       createContext,
     }),
   );
-  app.listen(PORT, () => {
-    console.log('listening:', PORT);
+  app.listen(process.env.TRPC_PORT, () => {
+    console.log('listening:', process.env.TRPC_PORT);
   });
 }
