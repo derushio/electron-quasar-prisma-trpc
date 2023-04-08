@@ -10,12 +10,13 @@
     "type-check": "tsc --noEmit; vue-tsc --noEmit",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev -m electron --devtools",
+    "dev": "quasar dev -m electron",
     "// prisma": "",
     "prisma:migrate": "echo 'マイグレーション名を入力' && read MIGRATION_NAME && prisma migrate dev --name $MIGRATION_NAME && yarn prisma:generate",
     "prisma:migration": "prisma migrate dev && yarn prisma:generate",
     "prisma:generate": "prisma generate",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "vue:devtools": "quasar dev -m electron --devtools"
   },
   "dependencies": {
     "@prisma/client": "4.8.0",
