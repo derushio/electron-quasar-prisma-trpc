@@ -3,11 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import { useTrpc } from 'src/domains/trpc/useTrpc';
+import { trpc } from 'src/domains/trpc/trpc.js';
 
 import { useQuery } from 'vue-query';
-
-const trpc = useTrpc();
 
 const userQuery = useQuery(['userQuery'], () => trpc.getUser.query());
 </script>
