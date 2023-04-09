@@ -15,7 +15,7 @@
     "prisma:migrate": "echo 'マイグレーション名を入力' && read MIGRATION_NAME && prisma migrate dev --name $MIGRATION_NAME && yarn prisma:generate",
     "prisma:migration": "prisma migrate dev && yarn prisma:generate",
     "prisma:generate": "prisma generate",
-    "prisma:studio": "prisma studio",
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "4.8.0",
