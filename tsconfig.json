@@ -6,7 +6,8 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "paths": {
-      "#/*": ["src-electron/*"]
+      "#/*": ["src-electron/*"],
+      "%/*": ["prisma/*"]
     }
   }
 }

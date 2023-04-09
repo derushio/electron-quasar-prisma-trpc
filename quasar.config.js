@@ -53,9 +53,6 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-      alias: {
-        '#': path.join(__dirname, 'src-electron'),
-      },
       env: require('dotenv').config().parsed,
 
       // transpile: false,
@@ -77,7 +74,13 @@ module.exports = configure(function (ctx) {
 
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      // chainWebpack (/* chain */) {}
+      chainWebpack(chain) {
+        chain.resolve.alias
+          .set('#', path.join(__dirname, 'src-electron'))
+          .set('%', path.join(__dirname, 'prisma'));
+
+        return chain;
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
